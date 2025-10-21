@@ -1,5 +1,6 @@
 from abc import abstractmethod
 from dataclasses import dataclass
+
 from parking_spot_size import ParkingSpotSize
 
 

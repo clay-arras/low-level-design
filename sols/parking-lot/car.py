@@ -1,5 +1,5 @@
-from vehicle import Vehicle
 from parking_spot_size import ParkingSpotSize
+from vehicle import Vehicle
 
 
 class Car(Vehicle):

@@ -1,5 +1,6 @@
 from ctypes import ArgumentError
 from typing import Self
+
 from clock import Clock
 from fee_strategy import FeeStrategy
 from floor import Floor
@@ -17,7 +18,11 @@ class ParkingLot:
         return cls._instance
 
     def __init__(
-        self, floors: list[Floor], parking_strat: ParkingStrategy, fee_strat: FeeStrategy, clock: Clock
+        self,
+        floors: list[Floor],
+        parking_strat: ParkingStrategy,
+        fee_strat: FeeStrategy,
+        clock: Clock,
     ) -> None:
         if hasattr(self, "is_initialized") and self.is_initialized:
             return
@@ -59,7 +64,6 @@ class ParkingLot:
         del self.start_time[parked_vehicle.uid]
 
         return self.fee_strategy.get_fee(start_time, end_time, parked_vehicle)
-
 
     def is_full(self) -> bool:
         return len(self.parking_index.items()) == self.max_capacity

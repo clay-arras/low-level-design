@@ -1,5 +1,5 @@
-from abc import ABC, abstractmethod
 import datetime
+from abc import ABC, abstractmethod
 from math import ceil
 
 from car import Car
@@ -31,7 +31,11 @@ class FlatRateFeeStrategy(FeeStrategy):
 
 
 class VehicleBasedFeeStrategy(FeeStrategy):
-    VEHICLE_FEES = {Truck: 15, Car: 10, Motorcycle: 5} # using class names so refactoring is easier, less coupled
+    VEHICLE_FEES = {
+        Truck: 15,
+        Car: 10,
+        Motorcycle: 5,
+    }  # using class names so refactoring is easier, less coupled
 
     def get_fee(
         self, start_time: datetime, end_time: datetime, vehicle: Vehicle
